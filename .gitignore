@@ -1,0 +1,95 @@
+# ============================================
+# RecoveryFlow - Complete .gitignore
+# ============================================
+
+# ============================================
+# Environment Variables (CRITICAL - Never commit!)
+# ============================================
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+backend/.env
+frontend/.env
+recovery.sql
+
+
+# ============================================
+# Node Modules
+# ============================================
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# ============================================
+# Package Lock Files
+# ============================================
+package-lock.json
+backend/package-lock.json
+frontend/package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ============================================
+# Build & Distribution Files
+# ============================================
+# Frontend Build
+frontend/dist/
+frontend/build/
+frontend/.vite/
+
+# Backend Build
+backend/dist/
+backend/build/
+
+# ============================================
+# Postman Files (API Testing)
+# ============================================
+*.postman_collection.json
+*.postman_environment.json
+Loan_Recovery_System_API.postman_collection.json
+Loan_Recovery_System_Environment.postman_environment.json
+
+
+# ============================================
+# Logs & Debugging
+# ============================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+backend/logs/
+frontend/logs/
+
+# ============================================
+# Testing & Coverage
+# ============================================
+coverage/
+backend/coverage/
+frontend/coverage/
+*.lcov
+.nyc_output/
+
+# ============================================
+# IDE & Editor Files
+# ============================================
+.vscode/
+*.code-workspace
+
+
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+.cache/
+tmp/
+

@@ -1,0 +1,420 @@
+/* LOCATION: frontend/src/components/AiAssistant.css */
+/* ENHANCED VERSION - Fixed Send button visibility + Added animations */
+
+/* --- Chatbot Widget --- */
+.ai-widget-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.ai-toggle-btn {
+  background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.ai-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6);
+}
+
+.ai-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+/* Pulse animation for attention */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.8);
+  }
+}
+
+/* Bounce animation for badge */
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.ai-chat-window {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 380px;
+  height: 550px;
+  max-height: 85vh;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  animation: slideUp 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px) scale(0.9); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+.ai-header {
+  background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+  padding: 1.25rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ai-messages {
+  flex: 1;
+  padding: 1.25rem;
+  overflow-y: auto;
+  background: #f9fafb;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+.ai-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ai-messages::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.ai-messages::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.ai-messages::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.ai-msg {
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  max-width: 85%;
+  line-height: 1.5;
+  animation: messageSlide 0.3s ease-out;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes messageSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ai-msg.user {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.ai-msg.ai {
+  background: white;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+}
+
+/* FIXED: Input area with proper Send button visibility */
+.ai-input-area {
+  padding: 1rem;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.ai-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 24px;
+  outline: none;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+  resize: none;
+  line-height: 1.4;
+}
+
+.ai-input:focus {
+  border-color: #3b82f6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ai-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #f1f5f9;
+}
+
+/* FIXED: Send button - Now highly visible */
+.ai-send-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  min-height: 50px !important;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  position: relative;
+  padding: 0;
+}
+
+.ai-send-btn:hover:not(:disabled) {
+  transform: scale(1.08) rotate(5deg);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+.ai-send-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.ai-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #cbd5e1;
+  box-shadow: none;
+}
+
+/* Send button pulse when ready */
+.ai-send-btn:not(:disabled)::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  opacity: 0;
+  animation: pulse-ring 2s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.15);
+  }
+}
+
+/* --- Risk Analyzer Card --- */
+.risk-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid #e5e7eb;
+  margin-top: 2rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.risk-card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+}
+
+.risk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.risk-metric {
+  padding: 1.25rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.risk-metric:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.risk-metric.score { 
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); 
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.risk-metric.sentiment { 
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); 
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.risk-metric.strategy { 
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); 
+  color: #5b21b6; 
+  grid-column: span 2; 
+  text-align: left;
+  border: 1px solid #e9d5ff;
+}
+
+.analyze-btn {
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.analyze-btn:hover:not(:disabled) { 
+  background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+.analyze-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.analyze-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #cbd5e1;
+  box-shadow: none;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+  .ai-chat-window {
+    width: calc(100vw - 2rem);
+    right: 1rem;
+    bottom: 90px;
+    height: 500px;
+  }
+  
+  .ai-widget-container {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .risk-metric.strategy { 
+    grid-column: span 1; 
+  }
+  
+  .ai-msg {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 400px) {
+  .ai-toggle-btn {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .ai-chat-window {
+    height: 450px;
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Context indicator styling */
+.context-indicator {
+  padding: 8px 12px;
+  background: #f0f9ff;
+  border-top: 1px solid #e0f2fe;
+  font-size: 0.75rem;
+  color: #0369a1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: fadeIn 0.3s ease-out;
+}
