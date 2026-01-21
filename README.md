@@ -1,7 +1,6 @@
 # 🏦 RecoveryFlow - AI-Powered Loan Recovery Platform
 
-> **LMA EDGE Hackathon 2026 Submission**  
-> **Category:** Keeping Loans on Track | Greener Lending  
+> **Hackathon 2026 Submission**
 > **Status:** Production-Ready MVP
 
 [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Available-success)](https://recoveryflow.example.com)
@@ -1162,7 +1161,7 @@ Pricing Tiers (Annual):
 - Direct outreach to LMA member banks
 - Offer 6-month free trial for early adopters
 - Build case studies + ROI testimonials
-- Present at LMA conferences (LMA Annual Meeting, LMA EDGE)
+- Present at LMA conferences (LMA Annual Meeting, LMA)
 
 #### Phase 2: Scale (Months 7-18)
 **Target:** 50 customers
@@ -1187,7 +1186,7 @@ Pricing Tiers (Annual):
 
 ## 📄 License
 
-This project is submitted for the **LMA EDGE Hackathon 2026**.
+This project is submitted for the **Hackathon 2026**.
 
 **Usage Terms:**
 - ✅ Free to review, test, and evaluate for hackathon judging
@@ -1201,7 +1200,7 @@ This project is submitted for the **LMA EDGE Hackathon 2026**.
 ---
 
 
-## 🙏 Thank You, LMA EDGE Judges!
+## 🙏 Thank You, Judges!
 
 We believe **RecoveryFlow** represents the future of loan recovery management for the EMEA market. Our platform addresses real pain points with innovative AI technology, comprehensive automation, and unwavering commitment to LMA standards.
 
@@ -1254,6 +1253,6 @@ We're excited to demonstrate RecoveryFlow's capabilities and discuss how it can 
 
 ---
 
-**Built with ❤️ for the LMA EDGE Hackathon 2026**
+**Built with ❤️ for the LMA Hackathon 2026**
 
 *Transforming loan recovery operations across EMEA, one intelligent automation at a time.* 🚀
